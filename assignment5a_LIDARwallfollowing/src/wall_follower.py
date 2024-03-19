@@ -44,7 +44,7 @@ class TurtleBot:
         self.move_msg.angular.x=0.0
         self.move_msg.angular.y=0.0
         self.move_msg.angular.z= self.controller
-    def drive(self)
+    def drive(self):
         self.forward
         self.steer
 
