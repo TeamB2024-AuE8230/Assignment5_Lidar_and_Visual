@@ -71,6 +71,7 @@ class TurtleBot:
         print(lidarData.ranges[0])
         if lidarData.ranges[0]<.15:
             self.backward()
+            pass
         else:
             self.forward()
         # print("Past Forward")
