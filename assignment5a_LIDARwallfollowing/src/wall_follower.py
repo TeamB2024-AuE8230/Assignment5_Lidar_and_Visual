@@ -91,13 +91,33 @@ class TurtleBot:
         self.move_msg.linear.y=0.0
         self.move_msg.linear.z=0.0
         self.turtle_bot_move.publish(self.move_msg)
+
+class Wall:
+    def __init__(self,minAngle,maxAngle,samples,data):
+        self.minAngle = minAngle#Defines the starting angle of a sweep
+        self.maxAngle = maxAngle#Defines the end angle of a sweep for walls
+        self.samples = samples#Defines how many data points to capture in each sweep
+        self.datapoints = []#Creates empty list to store datapoints
+        iterator=((self.maxAngle-self.minAngle)/self.samples)#Determines size of iterator to go through entire angle sweep
+        i=0
+        while i<samples:
+            self.datapoints.append(data.ranges[int(self.minAngle+iterator*i)])#Appends range data to end of list
+            i=i+1
+            #print(i)
         
+        self.datapoints = np.clip(self.datapoints,0,3)
+        print(self.datapoints)
+        self.average = np.mean(self.datapoints)#Calculates mean of datapoints
+        self.variance = np.var(self.datapoints)#Calculates variance of datapoints
+
+
+
 if __name__== '__main__':
     try:
-        tb=brandon_turtlebot.TurtleBot()
+        tb=TurtleBot()
         print("trying")
         tb.stop()
         rospy.spin()
     except rospy.ROSInterruptException:
-        tb_stop=brandon_turtlebot.TurtleBot()
+        tb_stop=TurtleBot()
         tb_stop.stop()
