@@ -13,10 +13,12 @@
 
 
 https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/cd0f808c-7447-4675-a5b4-f36f6f8bd133
+
 The terminal output of the package.
 
 
 
 
 https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/ba883af7-5436-4393-b680-dacde392a121
+
 The Gazebo output of the package.
