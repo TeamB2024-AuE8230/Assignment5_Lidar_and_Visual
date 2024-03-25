@@ -9,3 +9,7 @@
 1. After installation you can run ``roslaunch assignment5c_linefollower blob_tracker.launch ``
    *This should launch a Gazebo instance as well as the python controller script
 ## Videos
+
+
+https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/941bd1a0-51c0-4cd5-a45d-ee057aa19578
+
