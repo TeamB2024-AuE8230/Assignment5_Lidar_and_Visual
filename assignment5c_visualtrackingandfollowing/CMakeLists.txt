@@ -10,6 +10,8 @@ project(assignment5c_visualtrackingandfollowing)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  sensor_msgs
+  cv_bridge
 )
 
 ## System dependencies are found with CMake's conventions
