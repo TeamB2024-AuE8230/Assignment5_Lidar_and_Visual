@@ -3,11 +3,12 @@
 import rospy
 import numpy as np
 from math import pi, radians
-LOOKAHEAD=330
+LOOKAHEAD=330#Angle to look ahead at...60 degress from right wheel
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 
 class TurtleBot:
+    #Init signals
     errorSignal_2 = 0
     errorSignal_1 = 0
     errorSignal = 0
@@ -19,7 +20,7 @@ class TurtleBot:
         self.turtle_bot_move = rospy.Publisher("/cmd_vel",Twist,queue_size=10)#Publisher object that publishes a Twist type message to "/cmd_vel" and has a queue buffer with size of 10
         print("Created Publisher")
         self.move_msg=Twist()
-    def percieve(self, lidarData):
+    def percieve(self, lidarData):#Pulls lidar data for us to look at our "right wall"
         #self.left_wall = Wall(85,95,samples=5,data=lidarData)
         self.right_wall = lidarData.ranges[LOOKAHEAD]#Wall(330,350,samples=5,data=lidarData)
         print("Right Wall")
@@ -55,27 +56,27 @@ class TurtleBot:
         self.move_msg.linear.z=0.0
         # print(self.move_msg)
     def backward(self):
-        #Twist message for linear velocity components so turtlebot only drives forward
+        #Twist message for linear velocity components so turtlebot only drives backwards
         self.move_msg.linear.x=-0.05
         self.move_msg.linear.y=0.0
         self.move_msg.linear.z=0.0
         # print(self.move_msg)
-    def steer(self):
+    def steer(self):#Gives angular value for z based on controller
         self.move_msg.angular.x=0.0
         self.move_msg.angular.y=0.0
         self.move_msg.angular.z= self.controller()
         # print(self.move_msg)
-    def drive(self,lidarData):
+    def drive(self,lidarData):#Main drive method; called when receivng LIDAR data
         # print("In Drive method")
-        self.percieve(lidarData)
+        self.percieve(lidarData)#Calls to look ahead
         # print("Past Percieve")
         print("LIDAR Front:")
-        #print(lidarData.ranges[0])
+        #print(lidarData.ranges[0])#Prints distance to wall in front of robot
         #print(lidarData.ranges[LOOKAHEAD])
-        if lidarData.ranges[0]<.15:
+        if lidarData.ranges[0]<.15:#Checks distance in front. If too close, it reverses
             self.stop()
             self.backward()
-        else:
+        else:#As long as there is no obstacle directly in front it will drive forward and steer
             self.forward()
             self.steer()
         # print("Past Forward")
@@ -83,7 +84,7 @@ class TurtleBot:
         # print("Past steer")
         # print(self.move_msg)
         self.turtle_bot_move.publish(self.move_msg)
-    def stop(self):
+    def stop(self):#Method to stop movement
         self.move_msg.angular.x=0.0
         self.move_msg.angular.y=0.0
         self.move_msg.angular.z= 0
