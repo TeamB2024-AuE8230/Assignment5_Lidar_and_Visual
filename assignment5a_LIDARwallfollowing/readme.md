@@ -18,7 +18,7 @@ https://github.com/TeamB2024-AuE8230/Assignment5_Lidar_and_Visual/assets/1595606
 
 The roslaunch video of the package.
 
-### Terminal and Gazebo outpus
+### Terminal and Gazebo outputs
 
 https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/cd0f808c-7447-4675-a5b4-f36f6f8bd133
 
