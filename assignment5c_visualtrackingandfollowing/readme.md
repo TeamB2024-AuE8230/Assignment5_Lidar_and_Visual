@@ -23,7 +23,6 @@ https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/941bd
 
 Terminal output of line follower
 
-
-https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/12365a12-4db2-4320-859f-dda03a65094a
+https://github.com/TeamB2024-AuE8230/Assignment5_Lidar_and_Visual/assets/159560684/a7687aa3-d2e7-4d0a-af45-ebaf3a7f3be4
 
 Gazebo output of line follower
