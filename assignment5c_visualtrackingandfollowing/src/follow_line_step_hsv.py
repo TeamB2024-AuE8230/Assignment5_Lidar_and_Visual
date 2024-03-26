@@ -6,7 +6,9 @@ from cv_bridge import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import Image
 from move_robot import MoveTurtlebot3
+import time
 
+time.sleep(10)
 class LineFollower(object):
     errorSignal=0
     errorSignal_1=0
