@@ -7,10 +7,18 @@
    * ``export TURTLEBOT3_MODEL=burger``
    *  ``source devel/setup.bash
 ## Running the package
+
+
+
 1. After installation, you can run ``roslaunch assignment5a_LIDARwallfollowing wall_follower.launch ``
    *This should launch a Gazebo instance as well as the python controller script
 ## Videos
 
+https://github.com/TeamB2024-AuE8230/Assignment5_Lidar_and_Visual/assets/159560684/9eb578d2-b449-42a0-97aa-4a24d2cd853a
+
+The roslaunch video of the package.
+
+### Terminal and Gazebo outpus
 
 https://github.com/BleeKelly/Assignment5_Lidar_and_Visual/assets/150833244/cd0f808c-7447-4675-a5b4-f36f6f8bd133
 
